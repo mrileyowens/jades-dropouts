@@ -4,6 +4,24 @@ Things to do:
 - Compare the photometry of my JADES selection with that of Endsley et al. (2024)
 - Double check aperture characteristics of the convolved JADES KRON_S photometry compared to Endsley et al. (2024)
 
+# Description of the code
+
+This repository attempts to replicate the selection of F775W dropout galaxies described by Endsley et al. (2024) (herafter E24) in the GOODS-N and GOODS-S fields by using the JADES photometric catalog.
+
+The notebook `select.ipynb` performs the actual selection from the photometry, first in `drop()`, which makes all but the last selection from E24. I also added two adjustments, compared to the stated methodology of E24: 
+
+1. **Reassign negative flux densities in the ACS F606W and F775W filters.** E24 adopted the $1\sigma$ upper limit for low-SNR photometry in Lyman break-shortward filters used to calculate colors (namely ACS F606W and F775W), which is a common practice. When repeating that for the JADES catalog, some objects still have negative flux densities, which means the corresponding magnitude (and any dependent colors) are undefined. This felt like a somewhat arbitrary data artifact, particularly for objects that seemed unfairly disqualified over this. So, for objects which still had negative flux densities after adopting the $1\sigma$ upper limit, I assigned a tiny, positive flux density to those filters: $10^{-3}$ nJy. This should still capture what I think is the point here: that these objects have flux densities basically consistent with 0 in these filters.
+
+2. **Discard objects with undefined uncertainties.** Some objects have photometry with undefined uncertainties. I don't think it's appropriate to include those objects when one of the relevant filters to the selection criteria has an undefined uncertainty, so I also enforced that a handful of the most important filters must have a finite uncertainty.
+
+I also made use of the JADES catalog's flags to remove foreground stars and objects contaminated by bright stars or other neighbors.
+
+After making the initial selection, `drop()` saves the resulting catalog. This is necessary because the final selection requires making SED fits to estimate $f_\text{1500}$, and it would be cost prohibitive to do so for the entire JADES catalog before paring it down. E24 performed this SED fitting with BEAGLE, but I chose to use Bagpipes instead, since it is much quicker, and for the purposes of calculating $f_\text{1500}$, all that is necessary is to accurately reproduce the overall SED shape, and not necessarily accurate masses, metallicities, etc.
+
+The function `fit()` contains the Bagpipes fitting, which uses an identical filter set to E24, even though more filters are available in the JADES catalog. Using the resulting Bagpipes fits, `fit()` makes the final selection of E24 and saves the remaining objects to a new catalog.
+
+The remaining code analyzes the results of this selection.
+
 # Why aren't the two selections identical?
 
 ## Different photometry
