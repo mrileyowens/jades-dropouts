@@ -24,6 +24,10 @@ The function `fit()` contains the Bagpipes fitting, which uses an identical filt
 
 The remaining code analyzes the results of this selection.
 
+# How do the two selections compare?
+
+The two selections are not identical. Only 114 objects are common to both selections.
+
 # Why aren't the two selections identical?
 
 ## Different photometry
