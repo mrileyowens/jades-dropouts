@@ -3,6 +3,8 @@ Things to do:
 - Why does the final selection for sufficiently sensitive rest-optical colors drop such a large number of objects from the southwest region of GOODS-S?
 - Compare the photometry of my JADES selection with that of Endsley et al. (2024)
 - Double check aperture characteristics of the convolved JADES KRON_S photometry compared to Endsley et al. (2024)
+- Directly compare the bulk properties of both selections
+- Confirm if $\sim$ 90% of the brightest galaxies in my dropout selection are also recovered by Endsley et al. (2024)
 
 # Description of the code
 
