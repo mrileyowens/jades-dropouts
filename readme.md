@@ -9,6 +9,8 @@ Things to do:
 - Add figures to compare_phot.ipynb that summarize the distributions in a single figure, so it's clear if there are any peristent systemic differences
 - Combine compare_endsley2024() and compare_jades() into a loop
 - Confirm the number of objects from the E24 catalog that have no coordinate match in the full JADES catalog
+- Add descriptions of the purpose of each selection criteria / color
+- Finish the initial condition table, including those I added compared to E24
 
 # Description of the code
 
@@ -22,9 +24,19 @@ The function `merge()` in `select.ipynb` merges the two catalogs, appropriately 
 
 The F775W dropout selection then begins on the joint catalog with `drop()`, which performs an initial criteria enforcement. First, I adjust low-SNR photometry in F606W and F775W, two key filters we will use to calculate Lyman break colors that lie shortward of the Lyman break location we want to select for, by directly adopting the uncertainties in those filters as the observed photometry when SNR < 1. Crucially to later steps, though, I calculated the F606W SNR before this adjustment.
 
+The remainder of this function calculates boolean lists to apply jointly to the catalog, each list corresponding to one of a set of initial criteria to enforce against the joint JADES photometric catalog, summarized in the table below.
 
-
-
+>| Condition | Purpose | E24 |
+>| - | - | - |
+>| F775W - F090W > 1.2 | - | - |
+>| F090W - F150W < 1.0 | - | - |
+>| F775W - F090W > F090W - F150W + 1.2 | - | - |
+>| (SNR(F435W) < 2 and F606W - F090W > X) or F775W - F090W > 2.5 | - | - |
+>| Any NIRCam filter with SNR > 5 | - | - |
+>| At least 3 NIRCam filters with SNR > 3 | - | - |
+>| F814W or F850LP SNR > 3 | - | - |
+>
+>**Table:** Initial photometric criteria.
 
 
 
