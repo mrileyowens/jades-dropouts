@@ -5,6 +5,10 @@ Things to do:
 - Double check aperture characteristics of the convolved JADES KRON_S photometry compared to Endsley et al. (2024)
 - Directly compare the bulk properties of both selections
 - Confirm if $\sim$ 90% of the brightest galaxies in my dropout selection are also recovered by Endsley et al. (2024)
+- Look through the Bagpipes fits to the updated catalog (using the adjusted low-SNR method)
+- Add figures to compare_phot.ipynb that summarize the distributions in a single figure, so it's clear if there are any peristent systemic differences
+- Combine compare_endsley2024() and compare_jades() into a loop
+- Confirm the number of objects from the E24 catalog that have no coordinate match in the full JADES catalog
 
 # Description of the code
 
