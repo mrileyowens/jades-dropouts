@@ -12,6 +12,23 @@ Things to do:
 
 # Description of the code
 
+This repository is my attempt to replicate the F775W dropout selection by [Endsley et al. (2024)](https://doi.org/10.1093/mnras/stae1857) (hereafter E24), meant to select $z\sim6$ in the JADES fields. An explanation of the repository's content follows.
+
+First, this project does not attempt to reproduce the source identification and extraction of E24. Instead, I start from the JADES photometric catalogs, found at [the JADES HLSP page](https://archive.stsci.edu/hlsp/jades) in the "Direct Download" section. Specifically, the catalogs labeled "NIRCam Photometry (GOODS-S-Deep v2.0)" and "NIRCam Photometry (GOODS-N v1.0)". These store, for the GOODS-S and GOODS-N fields, respectively, the photometric object catalog from the JADES team. The individual catalogs exist in `data/`, named like `hlsp_jades_jwst_nircam_{field}_photometry_v{version number}_catalog.fits`.
+
+The Jupyter notebook `select.ipynb` merges these catalogs together and then applies the selection criteria of E24 on the joint catalog.
+
+The function `merge()` in `select.ipynb` merges the two catalogs, appropriately combining their headers and several (but not all) of their extensions. Namely just the extensions concerning the filter properties, data quality control flags, detection image extraction properties, and the Kron photometry of the PSF-convolved images to F444W resolution. The result is a single catalog file containing all the GOODS-N and GOODS-S photometric objects, saved in `results/catalogs/` as `hlsp_jades_jwst_nircam_goods-n_v1.0_goods-s-deep_v2.0_photometry_catalog.fits`. This joined catalog, as well as the constituent catalogs, have large on-disk sizes, so they are not synchronized with GitHub.
+
+The F775W dropout selection then begins on the joint catalog with `drop()`, which performs an initial criteria enforcement. First, I adjust low-SNR photometry in F606W and F775W, two key filters we will use to calculate Lyman break colors that lie shortward of the Lyman break location we want to select for, by directly adopting the uncertainties in those filters as the observed photometry when SNR < 1. Crucially to later steps, though, I calculated the F606W SNR before this adjustment.
+
+
+
+
+
+
+
+
 This repository attempts to replicate the selection of F775W dropout galaxies described by Endsley et al. (2024) (herafter E24) in the GOODS-N and GOODS-S fields by using the JADES photometric catalog.
 
 The notebook `select.ipynb` performs the actual selection from the photometry, first in `drop()`, which makes all but the last selection from E24. I also added two adjustments, compared to the stated methodology of E24: 
