@@ -28,13 +28,13 @@ The remainder of this function calculates boolean lists to apply jointly to the 
 
 >| Condition | Purpose | E24 |
 >| - | - | - |
->| F775W - F090W > 1.2 | - | - |
->| F090W - F150W < 1.0 | - | - |
->| F775W - F090W > F090W - F150W + 1.2 | - | - |
->| (SNR(F435W) < 2 and F606W - F090W > X) or F775W - F090W > 2.5 | - | - |
->| Any NIRCam filter with SNR > 5 | - | - |
->| At least 3 NIRCam filters with SNR > 3 | - | - |
->| F814W or F850LP SNR > 3 | - | - |
+>| F775W - F090W > 1.2 | - | Y |
+>| F090W - F150W < 1.0 | - | Y |
+>| F775W - F090W > F090W - F150W + 1.2 | - | Y |
+>| (SNR(F435W) < 2 and F606W - F090W > X) or F775W - F090W > 2.5 | - | Y |
+>| Any NIRCam filter with SNR > 5 | - | Y |
+>| At least 3 NIRCam filters with SNR > 3 | - | Y |
+>| F814W or F850LP SNR > 3 | - | Y |
 >
 >**Table:** Initial photometric criteria.
 
