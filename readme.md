@@ -38,6 +38,19 @@ The remainder of this function calculates boolean lists to apply jointly to the 
 >
 >**Table:** Initial photometric criteria.
 
+After applying these conditions to the joint JADES photometric catalog, so that only the objects satisfying all the criteria remain, the function saves the resulting catalog to `results/catalogs/` as `hlsp_jades_jwst_nircam_goods-n_v1.0_goods-s-deep_v2.0_photometry_catalog_f775w_dropouts_init.fits`.
+
+The next selecting function, `fit()`, finalizes the dropout selection with one more condition: $f_{1500 \textrm{ \AA}} / \sigma\left(X\right) > 3$ , for $X\in\{\text{F335M}, \text{F356W}, \text{F410M}, \text{F444W}\}$, where $f_{1500 \textrm{ \AA}}$ is the flux density at 1500 $\textrm{\AA}$ in the rest frame. This guarantees...
+
+Seeing as we have already selected for the $z\sim6$ character of the objects, one could crudely estimate this quantity from the observed photometry, perhaps by directly adopting the flux density of a rest-UV filter at this redshift, or correcting to 1500 $\textrm{\AA}$ with a UV slope, based on the color between two rest-UV filters. Neither approach is likely to be very accurate, as the specific redshift is unknown, and the photometric selection for $z\sim6$ can permit a wide redshift range.
+
+That means we need to perform SED fits to the photometry to estimate the exact redshift, as well as the spectrum's flux density at 1500 $\textrm{\AA}$.
+
+
+
+
+
+
 
 
 
