@@ -44,7 +44,23 @@ The next selecting function, `fit()`, finalizes the dropout selection with one m
 
 Seeing as we have already selected for the $z\sim6$ character of the objects, one could crudely estimate this quantity from the observed photometry, perhaps by directly adopting the flux density of a rest-UV filter at this redshift, or correcting to 1500 $\textrm{\AA}$ with a UV slope, based on the color between two rest-UV filters. Neither approach is likely to be very accurate, as the specific redshift is unknown, and the photometric selection for $z\sim6$ can permit a wide redshift range.
 
-That means we need to perform SED fits to the photometry to estimate the exact redshift, as well as the spectrum's flux density at 1500 $\textrm{\AA}$.
+Forgoing collecting spectra, that means we need to perform SED fits to the photometry to estimate the exact redshift, and correspondingly the spectrum's flux density at 1500 $\textrm{\AA}$. I used Bagpipes to perform this SED fitting.
+
+>| Parameter | Prior |
+>| - | - |
+>| Cosmology | ??? |
+>| IMF | ??? |
+>| SFH | CSFH |
+>| Redshift | $5 < z < 7$ |
+>| Time since SF began | $0 < \text{log}_{10}(t/\text{Gyr}) < 0.5$ |
+>| Time since SF ended | $0 < \text{log}_{10}(t/\text{Gyr}) < 0.5$ |
+>| Stellar mass formed | $6 < \text{log}_{10}(M_\star/\text{M}_\odot) < 13$ |
+>| $A_\text{V}$ | $0 < A_\text{V} < 2$ |
+>| Ionization parameter | $\text{log}_{10}(U)=-2$ |
+>| Metallicity | $0 < Z/\text{Z}_\odot < 0.5$ |
+>| Dust law | [Calzetti et al. (2000)](https://doi.org/10.1086/308692) |
+>
+>**Table:** Bagpipes parameters adopted for the SED fitting.
 
 
 
