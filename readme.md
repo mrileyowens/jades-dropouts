@@ -11,6 +11,7 @@ Things to do:
 - Confirm the number of objects from the E24 catalog that have no coordinate match in the full JADES catalog
 - Add descriptions of the purpose of each selection criteria / color
 - Finish the initial condition table, including those I added compared to E24
+- Adjust the far-UV flux density estimation to instead use the median flux density between 1450-1550 angstroms in the rest frame, instead of interpolating at 1500 angstroms
 
 # Description of the code
 
@@ -64,11 +65,27 @@ Forgoing collecting spectra, that means we need to perform SED fits to the photo
 >
 >**Table:** Bagpipes parameters adopted for the SED fitting.
 
-The `pipes/posterior/hlsp_jades_jwst_nircam_goods-n_v1.0_goods-s-deep_v2.0_photometry_catalog_f775w_dropouts_init.fits/` folder contains the posteriors of the SED fits, each labeled by their ID in the catalog.
+The `pipes/posterior/hlsp_jades_jwst_nircam_goods-n_v1.0_goods-s-deep_v2.0_photometry_catalog_f775w_dropouts_init.fits/` folder contains the posteriors of the SED fits, each labeled by their ID in the catalog. `fit()` also plots those fits against the observed photometry, stored in `figs/bagpipes_fits/`.
 
-`fit()` also plots the resulting SED fits against the observed photometry, stored in `figs/bagpipes_fits/`.
+E24 state that $f(\text{FUV})$ corresponds to the inferred $M_\text{UV}$ from the BEAGLE CSFH SED fits, though they are not clear about how they measured $M_\text{UV}$ from those SEDs. In a parallel project to reproduce the inferred EW distributions of E24, I measured $M_\text{UV}$ based on the median flux density of the SEDs in the wavelength range $1450-1550$ $\textrm{\AA}$ in the rest frame; this work adopts the interpolated flux density at 1500 $\textrm{\AA}$ in the rest frame. `fit()` measures and saves the far-UV flux density calculated in this fashion from the SEDs in `hlsp_jades_jwst_nircam_goods-n_v1.0_goods-s-deep_v2.0_photometry_catalog_f775w_dropouts_init_f1500.h5` in `results/`.
 
-E24 state that $f(\text{FUV})$ corresponds to the inferred $M_\text{UV}$ from the BEAGLE CSFH SED fits, though they are not clear about how they measured $M_\text{UV}$ from those SEDs. In a parallel project to reproduce the inferred EW distributions of E24, I measured $M_\text{UV}$ based on the median flux density of the SEDs in the wavelength range $1450-1550$ $\textrm{\AA}$ in the rest frame; this work adopts the interpolated flux density at 1500 $\textrm{\AA}$ in the rest frame.
+After applying this second set of conditions to the pared-down catalog, the code saves the resulting catalog in `results/catalogs/` as `hlsp_jades_jwst_nircam_goods-n_v1.0_goods-s-deep_v2.0_photometry_catalog_f775w_dropouts_final.fits`.
+
+<!--
+<p float="left" align="middle">
+    <img src="figs/bagpipes_fits/compare_ew_errors.png" width=33%/>
+</p>
+-->
+
+
+
+
+
+
+
+
+
+
 
 
 
