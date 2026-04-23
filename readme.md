@@ -40,11 +40,13 @@ The remainder of this function calculates boolean lists to apply jointly to the 
 
 After applying these conditions to the joint JADES photometric catalog, so that only the objects satisfying all the criteria remain, the function saves the resulting catalog to `results/catalogs/` as `hlsp_jades_jwst_nircam_goods-n_v1.0_goods-s-deep_v2.0_photometry_catalog_f775w_dropouts_init.fits`.
 
-The next selecting function, `fit()`, finalizes the dropout selection with one more condition: $f_{1500 \textrm{ \AA}} / \sigma\left(X\right) > 3$ , for $X\in\{\text{F335M}, \text{F356W}, \text{F410M}, \text{F444W}\}$, where $f_{1500 \textrm{ \AA}}$ is the flux density at 1500 $\textrm{\AA}$ in the rest frame. This guarantees...
+The next selecting function, `fit()`, finalizes the dropout selection with one more condition: $f(\text{FUV}) / \sigma\left(X\right) > 3$ , for $X\in\{\text{F335M}, \text{F356W}, \text{F410M}, \text{F444W}\}$, where $f\text{FUV})$ is the far-UV flux density in the rest frame. <!--E24 state that $f(\text{FUV})$ corresponds to the inferred $M_\text{UV}$ from the BEAGLE CSFH SED fits, though they are not clear about how they measured $M_\text{UV}$ from those SEDs. In a parallel project to reproduce the inferred EW distributions of E24, I measured $M_\text{UV}$ based on the median flux density of the SEDs in the wavelength range $1450-1550$ $\textrm{\AA}$ in the rest frame; this work adopts the interpolated flux density at 1500 $\textrm{\AA}$ in the rest frame.A-->
+
+This guarantees...
 
 Seeing as we have already selected for the $z\sim6$ character of the objects, one could crudely estimate this quantity from the observed photometry, perhaps by directly adopting the flux density of a rest-UV filter at this redshift, or correcting to 1500 $\textrm{\AA}$ with a UV slope, based on the color between two rest-UV filters. Neither approach is likely to be very accurate, as the specific redshift is unknown, and the photometric selection for $z\sim6$ can permit a wide redshift range.
 
-Forgoing collecting spectra, that means we need to perform SED fits to the photometry to estimate the exact redshift, and correspondingly the spectrum's flux density at 1500 $\textrm{\AA}$. I used Bagpipes to perform this SED fitting.
+Forgoing collecting spectra, that means we need to perform SED fits to the photometry to estimate the exact redshift, and correspondingly the spectrum's far-UV flux density. I used Bagpipes to perform this SED fitting. The table below lists the adopted Bagpipes parameters.
 
 >| Parameter | Prior |
 >| - | - |
@@ -62,8 +64,11 @@ Forgoing collecting spectra, that means we need to perform SED fits to the photo
 >
 >**Table:** Bagpipes parameters adopted for the SED fitting.
 
+The `pipes/posterior/hlsp_jades_jwst_nircam_goods-n_v1.0_goods-s-deep_v2.0_photometry_catalog_f775w_dropouts_init.fits/` folder contains the posteriors of the SED fits, each labeled by their ID in the catalog.
 
+`fit()` also plots the resulting SED fits against the observed photometry, stored in `figs/bagpipes_fits/`.
 
+E24 state that $f(\text{FUV})$ corresponds to the inferred $M_\text{UV}$ from the BEAGLE CSFH SED fits, though they are not clear about how they measured $M_\text{UV}$ from those SEDs. In a parallel project to reproduce the inferred EW distributions of E24, I measured $M_\text{UV}$ based on the median flux density of the SEDs in the wavelength range $1450-1550$ $\textrm{\AA}$ in the rest frame; this work adopts the interpolated flux density at 1500 $\textrm{\AA}$ in the rest frame.
 
 
 
