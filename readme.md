@@ -194,6 +194,19 @@ From visually analyzing the graph, only a few galaxies appear to have an insuffi
 
 The final photometric color requirement demands that F775W - F090W > F090W - F150W + 1.2. At z ~ 6,  the first color is the Lyman break in F775W and the second color is the UV slope. Functionally, this requirement enforces that a galaxy's Lyman break is much sharper than its UV slope. Without this requirement, lower-redshift galaxies with strong F775W - F090W decrements due to e.g., dust, could appear like a strong Lyman break, satisfying F775W - F090W > 1.2. But their F090W - F150W color should be similar, so mandating that the F775W - F090W color must be much sharper should eliminate these contaminants. This condition fails 31 of the unrecovered E24 galaxies.
 
+><p float="left" align="middle">
+>   <img src="figs/photometry_comparison/fails/F775W - 2 F090W + F150W.png" width=48%/>
+></p>
+>
+> **Figure:** The F775W - 2 $\times$ F090W + F150W color of the unrecovered E24 F775W dropout galaxies, according to the as-selected (*not* as-cataloged) JADES photometry. The black dashed line indicates the critical threshold for the corresponding F775W - 2 $\times$ F090W + F150W color requirement.
+
+><p float="left" align="middle">
+>   <img src="figs/photometry_comparison/endsley2024_f775w_dropouts_vs_jades_ACS_F775W_NRC_F090W_color.png" width=48%/>
+>   <img src="figs/photometry_comparison/endsley2024_f775w_dropouts_vs_jades_NRC_F090W_NRC_F150W_color.png" width=48%/>
+></p>
+>
+> **Figure:** The F775W - F090W and F090W - F150W colors of the E24 F775W dropout galaxies, according to the ACS/F775W, NIRCam/F090W, and NIRCam/F150W photometry in the E24 and JADES catalogs.
+
 ### No clear detection in F814W or F850LP
 
 Another important reason for failure is requiring a clear (SNR > 3) detection of a galaxy in either F814W or F850LP. This requirement fails 55 of the E24 galaxies, or about one third of the total discrepancy; more than any other requirement. The first figure below demonstrates that most of these galaxies have SNR(F814W) < 3, and many have SNR(F850LP) < 3. This makes sense in the context that the JADES F814W and F850LP photometry is simply fainter (see the second figure below); by about 1 magnitude. Thus the SNR should also be much lower, and it clears that we expect some E24 galaxies to fail this condition.
