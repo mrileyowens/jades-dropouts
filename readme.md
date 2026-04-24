@@ -192,11 +192,11 @@ From visually analyzing the graph, only a few galaxies appear to have an insuffi
 
 ### A Lyman break weaker than the UV slope
 
-The ... (F775W - F090W > F090W - F150W + 1.2) requirement fails 31 of the E24 galaxies.
+The final photometric color requirement demands that F775W - F090W > F090W - F150W + 1.2. At z ~ 6,  the first color is the Lyman break in F775W and the second color is the UV slope. Functionally, this requirement enforces that a galaxy's Lyman break is much sharper than its UV slope, so that the selection does not mistake strong F775W breaks due to e.g., dust in lower-redshift galaxies, as a Lyman break. In the case of a low-redshift interloper like that, the F775W - F090W and F090W - F150W colors should each be too similar to pass this requirement. This condition fails 31 of the unrecovered E24 galaxies.
 
 ### No clear detection in F814W or F850LP
 
-Another important reason for failure is requiring a clear (SNR > 3) detection of the galaxy in either F814W or F850LP. This requirement fails 55 of the E24 galaxies, or about one third of the total discrepancy; more than any other requirement. The first figure below demonstrates that most of these galaxies have SNR(F814W) < 3, and many have SNR(F850LP) < 3. This makes sense in the context that the JADES F814W and F850LP photometry is simply fainter (see the second figure below); by about 1 magnitude. Thus the SNR should also be much lower, and it clears that we expect some E24 galaxies to fail this condition.
+Another important reason for failure is requiring a clear (SNR > 3) detection of a galaxy in either F814W or F850LP. This requirement fails 55 of the E24 galaxies, or about one third of the total discrepancy; more than any other requirement. The first figure below demonstrates that most of these galaxies have SNR(F814W) < 3, and many have SNR(F850LP) < 3. This makes sense in the context that the JADES F814W and F850LP photometry is simply fainter (see the second figure below); by about 1 magnitude. Thus the SNR should also be much lower, and it clears that we expect some E24 galaxies to fail this condition.
 
 > 
 ><p float="left" align="middle">
