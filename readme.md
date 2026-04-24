@@ -180,7 +180,7 @@ The ... (F775W - F090W > F090W - F150W + 1.2) requirement fails 31 of the E24 ga
 
 ### No clear detection in F814W or F850LP
 
-The ... (SNR(F814W) > 3 or SNR(F850LP) > 3) requirement fails 55 of the E24 galaxies, which makes it the most failed condition. The figure below demonstrates that most of these galaxies have SNR(F814W) < 3, and many have SNR(F850LP) < 3.
+Another important reason for failure is requiring a clear (SNR > 3) detection of the galaxy in either F814W or F850LP. This requirement fails 55 of the E24 galaxies, or about one third of the total discrepancy; more than any other requirement. The first figure below demonstrates that most of these galaxies have SNR(F814W) < 3, and many have SNR(F850LP) < 3. This makes sense in the context that the JADES F814W and F850LP photometry is simply fainter (see the second figure below); by about 1 magnitude. Thus the SNR should also be much lower, and it clears that we expect some E24 galaxies to fail this condition.
 
 > 
 ><p float="left" align="middle">
