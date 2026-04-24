@@ -209,6 +209,42 @@ Like the F775W break requirement, many of the failing galaxies only marginally f
 >
 > **Figure:** The F775W - F090W and F090W - F150W colors of the E24 F775W dropout galaxies, according to the ACS/F775W, NIRCam/F090W, and NIRCam/F150W photometry in the E24 and JADES catalogs.
 
+### An insufficient F606W non-detection, or F606W or F775W break
+
+Perhaps the most logically complicated criterion is the following. We expect that z ~ 6 galaxies should have a flux below their Lyman break that is consistent with essentially zero. Thus, we enforce that SNR(F435W) < 2, since this filter lies completely blueward of the Lyman break at z ~ 6. We also require a strong F606W break: F606W - F090W > X, where X satisfies
+
+$
+X = 
+\begin{cases}
+1.8 & \text{if SNR(F606W)} > 2 \\
+2.7 & \text{otherwise}
+\end{cases}.
+$
+
+Alternatively, if a galaxy has an exceptionally strong F775W break (F775W - F090W > 2.5), we ignore the requirements on the F435W SNR and the F606W break. Cumulatively, 31 of the unrecovered E24 galaxies fail this set of conditions.
+
+The second figure below demonstrates that there is not a tight on-diagonal correlation between the F606W - F090W colors of the two catalogs, which may drive differences in the recovery. The first figure shows that a moderate amount of the E24 unrecovered galaxies totally ignore this condition due to their strong F775W breaks, and that exactly zero with SNR(F606W) > 2 pass the more stringent F606W break requirement. Most of the galaxies that do not have a strong F775W break (F775W - F090W > 2.5) instead qualify for the relaxed F606W break condition when SNR(F606W) < 2. The galaxies that still fail the relaxed F606W break also often marginally fail by < 0.5 mag.
+
+The third and final figure shows the F435W SNR of the unrecovered E24 F775W dropout galaxies in the JADES catalog. Since very few of the galaxies with weaker F775W breaks exceed the critical threshold of SNR(F435W) = 2, the figure indicates this is not the important point of failure for this condition; it is probably the F606W break instead.
+
+><p float="left" align="middle">
+>   <img src="figs/photometry_comparison/fails/f606w_break.png" width=48%/>
+></p>
+>
+> **Figure:** The F606W - F090W color of the unrecovered E24 F775W dropout galaxies, according to the as-selected (*not* as-cataloged) ACS/F606W and NIRCam/F090W photometry in the JADES catalog.
+
+><p float="left" align="middle">
+>   <img src="figs/photometry_comparison/endsley2024_f775w_dropouts_vs_jades_ACS_F606W_NRC_F090W_color.png" width=48%/>
+></p>
+>
+> **Figure:** The F606W - F090W color of the E24 F775W dropout galaxies, according to the ACS/F606W and NIRCam/F090W photometry in the E24 and JADES catalogs.
+
+><p float="left" align="middle">
+>   <img src="figs/photometry_comparison/fails/f435w_snr_gtr_2.png" width=48%/>
+></p>
+>
+> **Figure:** The ACS/F435W SNR of the unrecovered E24 F775W dropout galaxies, according to the JADES photometry. The black dashed line indicates the critical threshold for the corresponding SNR(F435W) requirement.
+
 ### No clear detection in F814W or F850LP
 
 Another important reason for failure is requiring a clear (SNR > 3) detection of a galaxy in either F814W or F850LP. This requirement fails 55 of the E24 galaxies, or about one third of the total discrepancy; more than any other requirement. The first figure below demonstrates that most of these galaxies have SNR(F814W) < 3, and many have SNR(F850LP) < 3. This makes sense in the context that the JADES F814W and F850LP photometry is simply fainter (see the second figure below); by about 1 magnitude. Thus the SNR should also be much lower, and it clears that we expect some E24 galaxies to fail this condition.
