@@ -160,7 +160,11 @@ The function `compare_conds_fails()` in `compare_phot.ipynb` investigates the sp
 
 The additional conditions I set, which E24 do not explicitly mention, are not important reasons for nonrecovery. Most of those conditions (3/4) only fail single digits of the E24 galaxies. At most, 17 of the unrecovered E24 galaxies fail one of the additional conditions.
 
-Instead, there are a few of the criteria explicitly mentioned by E24 that are the dominant failure modes. First is the F775W break requirement (F775W - F090W > 1.2), which fails 20 of the unrecovered E24 galaxies. As noted in another section, there are systematic differences in the photometry between the two catalogs. If it were consistent between filters, then *colors* should be preserved. This does not appear to be the case. Confusingly, the below figure suggests that the JADES photometry actually predicts slightly *redder* F775W breaks. That, however, is balanced by the large number of non-finite colors (probably due to undefined or negative filter photometry in either reduction).
+Instead, there are a few of the criteria explicitly mentioned by E24 that are the dominant failure modes. 
+
+### An insufficient F775W break
+
+First is the F775W break requirement (F775W - F090W > 1.2), which fails 20 of the unrecovered E24 galaxies. As noted in another section, there are systematic differences in the photometry between the two catalogs. If it were consistent between filters, then *colors* should be preserved. This does not appear to be the case. Confusingly, the below figure suggests that the JADES photometry actually predicts slightly *redder* F775W breaks. That, however, is balanced by the large number of non-finite colors (probably due to undefined or negative filter photometry in either reduction).
 
 <!--
 From visually analyzing the graph, only a few galaxies appear to have an insufficient F775W break in JADES but sufficient F775W break in E24, so most of the failures of this condition are probably due to 
@@ -170,8 +174,23 @@ From visually analyzing the graph, only a few galaxies appear to have an insuffi
 </p>
 -->
 
+### A Lyman break weaker than the UV slope
+
 The ... (F775W - F090W > F090W - F150W + 1.2) requirement fails 31 of the E24 galaxies.
 
-The ... (SNR(F814W) > 3 or SNR(F850LP) > 3) requirement fails 55 of the E24 galaxies, which makes it the most failed condition.
+### No clear detection in F814W or F850LP
+
+The ... (SNR(F814W) > 3 or SNR(F850LP) > 3) requirement fails 55 of the E24 galaxies, which makes it the most failed condition. The figure below demonstrates that most of these galaxies have SNR(F814W) < 3, and many have SNR(F850LP) < 3.
+
+<p float="left" align="middle">
+    <img src="figs/photometry_comparison/fails/f814w_f850lp_snr_gtr_3.png" width=50%/>
+</p>
+
+This makes sense in the context that the JADES F814W and F850LP photometry is simply fainter; by about 1 magnitude. Thus the SNR should also be much lower, and it clears that we expect some E24 galaxies to fail this condition.
+
+<p float="left" align="middle">
+    <img src="figs/photometry_comparison/endsley2024_f775w_dropouts_vs_jades_ACS_F814W.png" width=48%/>
+    <img src="figs/photometry_comparison/endsley2024_f775w_dropouts_vs_jades_ACS_F850LP.png" width=48%/>
+</p>
 
 The sufficiently sensitive rest-optical photometry (...) requirement fails 39 of the E24 galaxies.
