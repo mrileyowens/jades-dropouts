@@ -164,7 +164,23 @@ Instead, there are a few of the criteria explicitly mentioned by E24 that are th
 
 ### An insufficient F775W break
 
-First is the F775W break requirement (F775W - F090W > 1.2), which fails 20 of the unrecovered E24 galaxies. As noted in another section, there are systematic differences in the photometry between the two catalogs. If it were consistent between filters, then *colors* should be preserved. This does not appear to be the case. Confusingly, the below figure suggests that the JADES photometry actually predicts slightly *redder* F775W breaks. That, however, is balanced by the large number of non-finite colors (probably due to undefined or negative filter photometry in either reduction).
+Perhaps the most important selection criterion is requiring a strong F775W break (F775W - F090W > 1.2), which is characteristic of z ~ 6 galaxies due to the strong IGM absorption at z > 4. This condition fails 20 of the unrecovered E24 galaxies. It is established that the E24 and JADES photometry have strong systematic differences. Nominally, however, if those differences are uniform across filters, the photometric *colors* should be consistent. This does not appear to be the case, though.
+
+The first figure below shows that there are clear off-diagonal trends when comparing the E24 and JADES F775W - F090W color for the E24 F775W dropout galaxies, such that the JADES photometry apparently prefers a stronger (redder) F775W break, nominally suggesting the E24 galaxies should more easily pass this condition when tested by their JADES photometry. That observation, however, is balanced by the large number (75) of non-finite colors (probably due to undefined or negative flux densities in either reduction), obfuscating a clear understanding of the population trends. At any rate, even if the objects with non-finite colors in either catalog followed the diagonal, there would still be a clear off-diagonal population.
+
+The second figure below shows the F775W - F090W colors of the unrecovered E24 F775W dropout galaxies according to the as-selected JADES photometry. Recall that the selection procedure adopts the uncertainty in the F775W photometry as the observed flux density in cases of low-SNR F775W photometry. The figure indicates that, after the adjustment to the F775W photometry, few of the unrecovered E24 galaxies fail the F775W break condition. And those that do fail do not fail by much; < 0.5 mag, except 1 object > 1 mag below the threshold. This is promising, since it indicates that the unrecovered E24 galaxies that *do* fail this condition do not fail dramatically.
+
+><p float="left" align="middle">
+>   <img src="figs/photometry_comparison/endsley2024_f775w_dropouts_vs_jades_ACS_F775W_NRC_F090W_color.png" width=48%/>
+></p>
+>
+> **Figure:** The F775W - F090W color of the E24 F775W dropout galaxies, according to the ACS/F775W and NIRCam/F090W photometry in the E24 and JADES catalogs.
+
+><p float="left" align="middle">
+>   <img src="figs/photometry_comparison/fails/F775W - F090W.png" width=48%/>
+></p>
+>
+> **Figure:** The F775W - F090W color of the unrecovered E24 F775W dropout galaxies, according to the as-selected (*not* as-cataloged) JADES photometry. The black dashed line indicates the critical threshold for the corresponding F775W - F090W color requirement.
 
 <!--
 From visually analyzing the graph, only a few galaxies appear to have an insufficient F775W break in JADES but sufficient F775W break in E24, so most of the failures of this condition are probably due to 
