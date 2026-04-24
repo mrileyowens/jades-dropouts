@@ -192,7 +192,7 @@ From visually analyzing the graph, only a few galaxies appear to have an insuffi
 
 ### A Lyman break weaker than the UV slope
 
-The final photometric color requirement demands that F775W - F090W > F090W - F150W + 1.2. At z ~ 6,  the first color is the Lyman break in F775W and the second color is the UV slope. Functionally, this requirement enforces that a galaxy's Lyman break is much sharper than its UV slope, so that the selection does not mistake strong F775W breaks due to e.g., dust in lower-redshift galaxies, as a Lyman break. In the case of a low-redshift interloper like that, the F775W - F090W and F090W - F150W colors should each be too similar to pass this requirement. This condition fails 31 of the unrecovered E24 galaxies.
+The final photometric color requirement demands that F775W - F090W > F090W - F150W + 1.2. At z ~ 6,  the first color is the Lyman break in F775W and the second color is the UV slope. Functionally, this requirement enforces that a galaxy's Lyman break is much sharper than its UV slope. Without this requirement, lower-redshift galaxies with strong F775W - F090W decrements due to e.g., dust, could appear like a strong Lyman break, satisfying F775W - F090W > 1.2. But their F090W - F150W color should be similar, so mandating that the F775W - F090W color must be much sharper should eliminate these contaminants. This condition fails 31 of the unrecovered E24 galaxies.
 
 ### No clear detection in F814W or F850LP
 
