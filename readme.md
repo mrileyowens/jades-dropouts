@@ -140,3 +140,38 @@ The function `compare_jades()` in `compare_phot.ipynb` compares the photometry o
 
 - Why are 10 of the F775W dropouts of E24 missing in the JADES catalog?
 - What are the reasons why some of the F775W dropouts from E24 do not have a well-defined color? And how important is each?
+
+## What criteria do unrecovered E24 galaxies fail?
+
+The function `compare_conds_fails()` in `compare_phot.ipynb` investigates the specific points of failure for the E24 F775W dropout galaxies not recovered by this work's F775W dropout selection process. The table below summarizes the exact conditions of the selection that these galaxies fail.
+
+>| Condition | Count |
+>| - | - |
+>| F775W - F090W > 1.2 | 20 |
+>| F090W - F150W < 1.0 | 9 |
+>| F775W - F090W > F090W - F150W + 1.2 | 31 |
+>| (SNR(F435W) < 2 and F606W - F090W > X) or F775W - F090W > 2.5 | - |
+>| Any NIRCam filter with SNR > 5 | - |
+>| At least 3 NIRCam filters with SNR > 3 | - |
+>| F814W or F850LP SNR > 3 | 55 |
+>| $f(FUV) / \sigma(X)>3\text{ }\forall X\in\{\text{F335M}, \text{F356W}, \text{F410M}, \text{F444W}\}$ | 39 |
+>
+>**Table:** The conditions failed by unrecovered E24 galaxies. Galaxies may fail more than one condition, so the sums of the counts do not total the number of unrecovered galaxies. The selection process only tests the second set of conditions for galaxies that pass the first set, so in those cases that a galaxy fails during the first set of conditions, the second does not count as a failure.
+
+The additional conditions I set, which E24 do not explicitly mention, are not important reasons for nonrecovery. Most of those conditions (3/4) only fail single digits of the E24 galaxies. At most, 17 of the unrecovered E24 galaxies fail one of the additional conditions.
+
+Instead, there are a few of the criteria explicitly mentioned by E24 that are the dominant failure modes. First is the F775W break requirement (F775W - F090W > 1.2), which fails 20 of the unrecovered E24 galaxies. As noted in another section, there are systematic differences in the photometry between the two catalogs. If it were consistent between filters, then *colors* should be preserved. This does not appear to be the case. Confusingly, the below figure suggests that the JADES photometry actually predicts slightly *redder* F775W breaks. That, however, is balanced by the large number of non-finite colors (probably due to undefined or negative filter photometry in either reduction).
+
+<!--
+From visually analyzing the graph, only a few galaxies appear to have an insufficient F775W break in JADES but sufficient F775W break in E24, so most of the failures of this condition are probably due to 
+
+<p float="left" align="middle">
+    <img src="figs/photometry_comparison/endsley2024_f775w_dropouts_vs_jades_ACS_F775W_NRC_F090W_color.png" width=48%/>
+</p>
+-->
+
+The ... (F775W - F090W > F090W - F150W + 1.2) requirement fails 31 of the E24 galaxies.
+
+The ... (SNR(F814W) > 3 or SNR(F850LP) > 3) requirement fails 55 of the E24 galaxies, which makes it the most failed condition.
+
+The sufficiently sensitive rest-optical photometry (...) requirement fails 39 of the E24 galaxies.
