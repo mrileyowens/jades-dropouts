@@ -182,15 +182,18 @@ The ... (F775W - F090W > F090W - F150W + 1.2) requirement fails 31 of the E24 ga
 
 The ... (SNR(F814W) > 3 or SNR(F850LP) > 3) requirement fails 55 of the E24 galaxies, which makes it the most failed condition. The figure below demonstrates that most of these galaxies have SNR(F814W) < 3, and many have SNR(F850LP) < 3.
 
-<p float="left" align="middle">
-    <img src="figs/photometry_comparison/fails/f814w_f850lp_snr_gtr_3.png" width=50%/>
-</p>
+> 
+><p float="left" align="middle">
+>    <img src="figs/photometry_comparison/fails/f814w_f850lp_snr_gtr_3.png" width=50%/>
+></p>
+>
+>**Figure:** The SNR of the ACS/F814W and ACS/F850LP photometry measured by JADES for the E24 F775W dropout galaxies not recovered by this work's F775W dropout selection. The dashed black line indicates SNR = 3, which is the critical threshold for the corresponding requirement on the F814W and F850LP SNR.
 
-This makes sense in the context that the JADES F814W and F850LP photometry is simply fainter; by about 1 magnitude. Thus the SNR should also be much lower, and it clears that we expect some E24 galaxies to fail this condition.
-
-<p float="left" align="middle">
-    <img src="figs/photometry_comparison/endsley2024_f775w_dropouts_vs_jades_ACS_F814W.png" width=48%/>
-    <img src="figs/photometry_comparison/endsley2024_f775w_dropouts_vs_jades_ACS_F850LP.png" width=48%/>
-</p>
+><p float="left" align="middle">
+>   <img src="figs/photometry_comparison/endsley2024_f775w_dropouts_vs_jades_ACS_F814W.png" width=48%/>
+>   <img src="figs/photometry_comparison/endsley2024_f775w_dropouts_vs_jades_ACS_F850LP.png" width=48%/>
+></p>
+>
+> **Figure:** The ACS/F814W and ACS/F850LP photometry of the E24 F775W dropout galaxies in the E24 and JADES catalogs. In both filters, the JADES photometry is fainter by about 1 magnitude.
 
 The sufficiently sensitive rest-optical photometry (...) requirement fails 39 of the E24 galaxies.
