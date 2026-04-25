@@ -12,6 +12,10 @@ Things to do:
 - Add descriptions of the purpose of each selection criteria / color
 - Finish the initial condition table, including those I added compared to E24
 - Adjust the far-UV flux density estimation to instead use the median flux density between 1450-1550 angstroms in the rest frame, instead of interpolating at 1500 angstroms
+- Polish code somewhere in `compare_phot.ipynb` to determine number of E24 galaxies that do not appear in JADES at all
+- Finish the table summarizing the failure modes of the unrecovered E24 galaxies
+- Add a caption to each figure.
+- Check if the failure counts of the unrecovered E24 galaxies include the galaxies that do not appear in the JADES catalog
 
 # Description of the code
 
