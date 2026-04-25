@@ -160,7 +160,7 @@ The function `compare_conds_fails()` in `compare_phot.ipynb` investigates the sp
 
 The additional conditions I set, which E24 do not explicitly mention, are not important reasons for nonrecovery. Most of those conditions (3/4) only fail single digits of the E24 galaxies. At most, 17 of the unrecovered E24 galaxies fail one of the additional conditions.
 
-Instead, there are a few of the criteria explicitly mentioned by E24 that are the dominant failure modes. 
+Instead, there are a few of the criteria explicitly mentioned by E24 that are the dominant failure modes. The following sections investigates each of those modes, ultimately concluding that the nonrecovery fraction is probably primarily a result of systematic differences in the photometry of the E24 and JADES catalogs and natural photometric scatter.
 
 ### An insufficient F775W break
 
