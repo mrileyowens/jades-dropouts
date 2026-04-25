@@ -263,4 +263,6 @@ Another important reason for failure is requiring a clear (SNR > 3) detection of
 >
 > **Figure:** The ACS/F814W and ACS/F850LP photometry of the E24 F775W dropout galaxies in the E24 and JADES catalogs. In both filters, the JADES photometry is fainter by about 1 magnitude.
 
-The sufficiently sensitive rest-optical photometry (...) requirement fails 39 of the E24 galaxies.
+### Insufficiently sensitive rest-optical photometry
+
+In order to guarantee that the rest-optical photometry is sufficiently sensitive for color measurements, the second set of conditions requires that the far-UV flux $f$(FUV) satisfies $f(\text{FUV}) / \sigma(X) > 3$, for $X\in\{\text{F335M}, \text{F356W}, \text{F410M}, \text{F444W}\}$, where $\sigma(X)$ is the uncertainty in the filter $X$. This requirement fails 39 of the unrecovered E24 F775W dropout galaxies.
