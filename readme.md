@@ -81,46 +81,51 @@ After applying this second set of conditions to the pared-down catalog, the code
 </p>
 -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-This repository attempts to replicate the selection of F775W dropout galaxies described by Endsley et al. (2024) (herafter E24) in the GOODS-N and GOODS-S fields by using the JADES photometric catalog.
+<!--
+This repository attempts to replicate the selection of F775W dropout galaxies described by E24 (herafter E24) in the GOODS-N and GOODS-S fields by using the JADES photometric catalog.
 
 The notebook `select.ipynb` performs the actual selection from the photometry, first in `drop()`, which makes all but the last selection from E24. I also added two adjustments, compared to the stated methodology of E24: 
 
-1. **Reassign negative flux densities in the ACS F606W and F775W filters.** E24 adopted the $1\sigma$ upper limit for low-SNR photometry in Lyman break-shortward filters used to calculate colors (namely ACS F606W and F775W), which is a common practice. When repeating that for the JADES catalog, some objects still have negative flux densities, which means the corresponding magnitude (and any dependent colors) are undefined. This felt like a somewhat arbitrary data artifact, particularly for objects that seemed unfairly disqualified over this. So, for objects which still had negative flux densities after adopting the $1\sigma$ upper limit, I assigned a tiny, positive flux density to those filters: $10^{-3}$ nJy. This should still capture what I think is the point here: that these objects have flux densities basically consistent with 0 in these filters.
+1. **Reassign negative flux densities in the ACS F606W and F775W filters.** E24 adopted the $1\sigma$ upper limit for low-SNR photometry in Lyman break-shortward filters used to calculate colors (namely ACS F606W and F775W), which is a common practice. When repeating that for the JADES catalog, some objects still have negative flux densities, which means the corresponding magnitude (and any dependent colors) are undefined. This felt like a somewhat arbitrary data artifact, particularly for objects that seemed unfairly disqualified over this. So, for objects which still had negative flux densities after adopting the $1\sigma$ upper limit, I assigned a tiny, positive flux density to those filters: $10^{-3}$ nJy. This should still capture what I think is the point here: that these objects have flux densities basically consistent with 0 in these filters.-->
 
-2. **Discard objects with undefined uncertainties.** Some objects have photometry with undefined uncertainties. I don't think it's appropriate to include those objects when one of the relevant filters to the selection criteria has an undefined uncertainty, so I also enforced that a handful of the most important filters must have a finite uncertainty.
+<!--2. **Discard objects with undefined uncertainties.** Some objects have photometry with undefined uncertainties. I don't think it's appropriate to include those objects when one of the relevant filters to the selection criteria has an undefined uncertainty, so I also enforced that a handful of the most important filters must have a finite uncertainty.-->
 
-I also made use of the JADES catalog's flags to remove foreground stars and objects contaminated by bright stars or other neighbors.
+<!--I also made use of the JADES catalog's flags to remove foreground stars and objects contaminated by bright stars or other neighbors.
 
 After making the initial selection, `drop()` saves the resulting catalog. This is necessary because the final selection requires making SED fits to estimate $f_\text{1500}$, and it would be cost prohibitive to do so for the entire JADES catalog before paring it down. E24 performed this SED fitting with BEAGLE, but I chose to use Bagpipes instead, since it is much quicker, and for the purposes of calculating $f_\text{1500}$, all that is necessary is to accurately reproduce the overall SED shape, and not necessarily accurate masses, metallicities, etc.
 
-The function `fit()` contains the Bagpipes fitting, which uses an identical filter set to E24, even though more filters are available in the JADES catalog. Using the resulting Bagpipes fits, `fit()` makes the final selection of E24 and saves the remaining objects to a new catalog.
+The function `fit()` contains the Bagpipes fitting, which uses an identical filter set to E24, even though more filters are available in the JADES catalog. Using the resulting Bagpipes fits, `fit()` makes the final selection of E24 and saves the remaining objects to a new catalog.-->
 
 The remaining code analyzes the results of this selection.
 
-# How do the two selections compare?
-
-The two selections are not identical. Only 114 objects are common to both selections.
-
 # Why aren't the two selections identical?
+
+The two selections are not identical. The below figures show the final distribution of objects in the two fields. In total, this work's selection features 317 galaxies and recovers 126 / 278 (46\%) of the E24 F775W dropout galaxies.
+
+<p float="left" align="middle">
+    <img src="figs/hlsp_jades_jwst_nircam_goods-n_v1.0_photometry_catalog_f775w_dropouts_final.png" width=48%/>
+    <img src="figs/hlsp_jades_jwst_nircam_goods-s-deep_v2.0_photometry_catalog_f775w_dropouts_final.png" width=48%/>
+</p>
+
+## Incomplete source identification
+
+**Concluded impact: unimportant**
+
+The JADES photometric catalog employed an source indentification and extraction procedure independently of E24, meaning the base set of objects in the fields, before even applying any F775W dropout selection criteria, are not strictly identical between the two catalogs. In fact, 10 of the E24 galaxies appear to have no match in the JADES photometric catalog (no coordinate match within 0.1 arcsec), meaning they trivially contribute to the unrecovered population. This number is small, though, compared to the discrepancy in the number of those galaxies recovered in this sample's selection, so it is insufficient to explain the mediocre recovery.
+
+## Different footprints
+
+## Different apertures
+
+**Concluded impact: uncertain**
+
+The E24 catalog applies both k = 1.2 and k = 2.5 Kron apertures to estimate the total flux of a galaxy. The JADES catalog offers photometry measured from k = 1.2 and k = 2.5 Kron apertures. This work adopts the k = 1.2 Kron photometry, so the comparison, as far as trying to replicate the E24 F775W dropout selection, is not quite apples-to-apples. This difference could be the origin of the systematic discrepancies seen in the photometry of the two catalogs, possibly driving the recovery fraction of the E24 F775W dropout galaxies. 
+
+Replicating the total flux estimated by E24 is probably nontrivial, since it would involve measuring the F444W PSF, a neighbor subtraction algorithm from a previous paper, and the segmentation maps.
 
 ## Different photometry
 
-### Comparing photometry of the Endsley et al. (2024) galaxies with the corresponding photometry in JADES
+A tempting explanation is that the photometry of the JADES reduction is simply systematically different in some fashion, so that the selection criteria fail to recover some E24 galaxies.
 
 ### Comparing photometry of the E24 galaxies with the corresponding photometry in JADES
 
